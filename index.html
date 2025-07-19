@@ -3,149 +3,27 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>VƯƠNG NGỐ Profile</title>
+  <title>HUNG VUONG - Dynamic Background</title>
   <style>
-body, html {
-  margin: 0;
-  padding: 0;
-  overflow: hidden;
-  font-family: 'Segoe UI', sans-serif;
-  height: 100%;
-  background: linear-gradient(135deg, #000000, #050505);
-}
-
-.background {
-  position: relative;
-  width: 100%;
-  height: 100vh;
-  background: radial-gradient(circle at center, rgba(0,255,255,0.05), transparent 70%),
-              radial-gradient(circle at 20% 20%, rgba(0,255,255,0.1), transparent 60%),
-              radial-gradient(circle at 80% 30%, rgba(0,255,255,0.1), transparent 60%);
-  animation: moveBg 10s linear infinite;
-}
-
-@keyframes moveBg {
-  0% { background-position: 0 0, 0 0, 0 0; }
-  100% { background-position: 500px 500px, 400px 300px, 600px 200px; }
-}
-
-.content {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  text-align: center;
-  color: cyan;
-  text-shad
-}
-
-@keyframes pulse {
-  0% { transform: scale(1); }
-  50% { transform: scale(1.2); }
-  100% { transform: scale(1); }
-}
-
-    body {
-      margin: 0;
-      padding: 0;
-      font-family: 'Arial', sans-serif;
-      background: radial-gradient(circle at top center, #111, #000);
-      color: #0ff;
+    * { margin: 0; padding: 0; }
+    canvas { display: block; position: fixed; top: 0; left: 0; z-index: -1; }
+    .content {
+      position: relative;
+      z-index: 10;
+      color: #00ffff;
       text-align: center;
-    }
-    .container {
-      padding: 30px 20px;
-    }
-    .logo {
-      width: 120px;
-      height: 120px;
-      background: white;
-      border-radius: 50%;
-      margin: 0 auto 20px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-    .logo img {
-      width: 60%;
-    }
-    h1 {
-      font-size: 24px;
-      margin-bottom: 10px;
-      text-shadow: 0 0 10px #0ff;
-    }
-    .button {
-      background: #000;
-      border: 2px solid #0ff;
-      color: #0ff;
-      padding: 12px 20px;
-      margin: 10px;
-      display: inline-block;
-      border-radius: 10px;
-      text-decoration: none;
-      font-weight: bold;
-      box-shadow: 0 0 10px #0ff;
-      transition: all 0.3s;
-    }
-    .button:hover {
-      background: #0ff;
-      color: #0000FF;
-      box-shadow: 0 0 20px #0ff;
-    }
-    .fps {
-      position: absolute;
-      top: 10px;
-      left: 10px;
-      font-size: 14px;
-      color: #ccc;
-      opacity: 0.6;
+      padding-top: 100px;
+      font-family: Arial, sans-serif;
     }
   </style>
 </head>
 <body>
-  <div class="fps">FPS: 60</div>
-  <div class="container">
-    <div class="logo">
-      <img src="https://www.google.com/search?client=ms-android-oppo-rvo2&sca_esv=a200e05b38ad46df&sxsrf=AE3TifMqoAAxXC51OkOPvTfz0tiap6AE3A:1752932598828&udm=2&fbs=AIIjpHyNLa7NbKa1H9FnKAJNsjCPuuyZ8axF70qppVREZw12J16j6TEYGEwZz6y4Q0FA_xOE30G6RKG5ujEO-FDDqIXBKabFAsAvqMAh8pVngtleoUrHIvFaMtS6_zr6q5Gr0qEEz47VL7WTO8eb8wIgBbAdMKPE21XlB4S_nGqmDNGJbVj8OgANcw2x4UYB9SSReiZ4OxuZA4j6ODUPnc1GQkT7oSWdiRefLzGGkYnJeqqh8MblaAanDV8nk2MRzPdQ1vvcvBAM&q=t%C3%B4n+ng%E1%BB%99+kh%C3%B4ng+logo&sa=X&ved=2ahUKEwjk-fjmhsmOAxUwkq8BHWWWDmUQtKgLegQIDRAB&biw=360&bih=664&dpr=3#sv=CAMSvQQakAQK6gEKuQEStgEKd0FMa3RfdkZnV0lHVlJBanh3YXEwSlNHT3BqQjAzbVlsVFdnOC1tQW50VFRUck9RNUVwQmdFeXBTa2JtQ2hFbEhzLXFFeGlvM3VJNFF0SDY4UVlJcFJ0bjNjTmZWNmV3bFQwdGlQcW1DYnBUaEF4dWlxUXE5UkdjEhctcUI3YU56MUxZNnp2cjBQbHFDTzBRbxoiQUZNQUdHcXNaY002RFZYdUxsM2JkUjFMOThLTDg0bTVhdxIDODQ5GgEzIhsKAXESFnTDtG4gbmfhu5kga2jDtG5nIGxvZ28iBwoDdGJzEgASjgIKzwESzAEKjAFBTGt0X3ZGRUZrYjBjOHR5N1F3WjdJUnNyWXFlTWg1LXVqYTZUWnc4Y1B4QmNEeWxUOWs0dDVlLXZvOEJiWVBHbXlLX3E1NWluMV9OOFFvajFDY3N0bWd4Vzkyc1NUNnYweEJVcUtQY3JMRGdqYUdVUHd5OWJxNDYxZlh6Q0JWQUJ6TVgzOWMxU3B0RhIXLXFCN2FOejFMWTZ6dnIwUGxxQ08wUW8aIkFGTUFHR3JxSUlzdWdSdzFMQ0FDVWFZd2RUaUJzVWZueXcSBDQ2OTgaATMiGAoGaW1nZGlpEg5QSDQ0ZlhUcmtNYmhMTSIXCgVkb2NpZBIOVUFCYTVxOG1lR2JjcE0qEGUtUEg0NGZYVHJrTWJoTE0gBCokCg5YQTF0U25RLVBoeDZaTRIQZS1QSDQ0ZlhUcmtNYmhMTRgAMAEYByDs69G3AzABQAI"
-    <h1>VƯƠNG DTRAI</h1>
-    <a href="#" class="button">Dịch vụ</a>
-    <a href="#" class="button">RBL-LQ-DV FB</a>
-    
-    <div>
-      <a href="#" class="button">CHECKUT</a>
-      <a href="#" class="button">Facebook</a>
-    </div>
-    <div>
-      <a href="#" class="button">TIKTOK</a>
-      <a href="#" class="button">Telegram</a>
-    </div>
+  <canvas id="bg"></canvas>
+  <div class="content">
+    <h1>MINH NGO</h1>
+    <p>Giao diện neon + hiệu ứng nền động</p>
   </div>
-</body>
-<!-- Nút phát nhạc -->
-<div class="music-toggle" onclick="toggleMusic()">
-  🎵
-</div>
 
-<!-- Audio hiện -->
-<audio id="background-music" loop>
-  <source src="Tr Ma Remix TikTok - Umie x Teddy x _mile x meChill _ Ny C B i Remix Hot TikTok.mp3" type="audio/mpeg">
-  Trình duyệt của bạn không hỗ trợ phát nhạc.
-</audio>
-
-</html>
-<!DOCTYPE html>
-<html lang="vi">
-<head>
-  <meta charset="UTF-8">
-  <title>Nền Động</title>
-  <link rel="stylesheet" href="style.css">
-</head>
-<body>
-  <div class="background">
-    <div class="content">
-      <h1>MINH NGO</h1>
-      <p>Dịch vụ • Facebook • TikTok</p>
-    </div>
-  </div>
+  <script src="bg.js"></script>
 </body>
 </html>
