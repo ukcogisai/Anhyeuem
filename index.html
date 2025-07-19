@@ -1,50 +1,92 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Minh Ngo Profile</title>
-  <link rel="stylesheet" href="styles.css" />
-<style> 
-body {
-  background: #000;
-  font-family: 'Orbitron', sans-serif;
-  color: #0ff;
-  text-align: center;
-}
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Minh Ngo Profile</title>
+  <!-- Font Orbitron -->
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: url("background.jpg") no-repeat center center fixed;
+      background-size: cover;
+      font-family: 'Orbitron', sans-serif;
+      color: #0ff;
+      text-align: center;
+    }
 
-.neon-btn {
-  border: 2px solid #0ff;
-  padding: 10px 20px;
-  margin: 10px;
-  background: transparent;
-  color: #0ff;
-  font-weight: bold;
-  text-shadow: 0 0 10px #0ff;
-  box-shadow: 0 0 10px #0ff;
-}
+    .container {
+      padding: 30px 10px;
+    }
 
-.neon-btn:hover {
-  background-color: rgba(0, 255, 255, 0.1);
-  box-shadow: 0 0 20px #0ff;
-}
-</style>
+    .fps {
+      font-size: 20px;
+      font-weight: bold;
+      text-shadow: 0 0 5px #0ff;
+      margin-bottom: 20px;
+    }
+
+    .logo {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      box-shadow: 0 0 20px #0ff;
+      margin-bottom: 20px;
+    }
+
+    h1 {
+      font-size: 36px;
+      margin-bottom: 20px;
+      text-shadow: 0 0 10px #0ff;
+    }
+
+    .neon-btn {
+      display: inline-block;
+      border: 2px solid #0ff;
+      padding: 12px 24px;
+      margin: 10px;
+      background: transparent;
+      color: #0ff;
+      font-weight: bold;
+      text-shadow: 0 0 10px #0ff;
+      box-shadow: 0 0 15px #0ff;
+      border-radius: 8px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: 0.3s ease;
+    }
+
+    .neon-btn:hover {
+      background-color: rgba(0, 255, 255, 0.1);
+      box-shadow: 0 0 25px #0ff;
+    }
+
+    .links {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
+      margin-top: 20px;
+    }
+  </style>
 </head>
 <body>
-  <div class="container">
-    <div class="fps">FPS: 41.8</div>
-    <div class="profile">
-      <img src="meta-logo.png" class="logo" />
-      <h1>MINH NGO</h1>
-      <button class="neon-btn">Dịch vụ</button>
-      <button class="neon-btn">RBL-LQ-DV FB</button>
-      <div class="links">
-        <button>CHECKUT</button>
-        <button>Facebook</button>
-        <button>TIKTOK</button>
-        <button>Telegram</button>
-      </div>
-    </div>
-  </div>
+  <div class="container">
+    <div class="fps">FPS: 41.8</div>
+    <img src="https://i.pinimg.com/originals/9c/59/75/9c5975bfd2b44f76b264e00b8388eb76.png" alt="Luffy Chibi" class="logo" />
+    <h1>MINH NGO</h1>
+    <div>
+      <button class="neon-btn">Dịch vụ</button>
+      <button class="neon-btn">RBL-LQ-DV FB</button>
+    </div>
+    <div class="links">
+      <button class="neon-btn">CHECKUT</button>
+      <button class="neon-btn">Facebook</button>
+      <button class="neon-btn">TIKTOK</button>
+      <button class="neon-btn">Telegram</button>
+    </div>
+  </div>
 </body>
 </html>
